@@ -40,7 +40,6 @@
     String sfx = slingRequest.getRequestPathInfo().getSuffix();
     sfx = sfx == null ? "" : sfx;
     ToggleRouter toggleRouter = sling.getService(ToggleRouter.class);
-    log.info("builditems in apps");
     
     /**
     CQ-4284633 Disable ratings component in metaschema editor when skyline is enabled

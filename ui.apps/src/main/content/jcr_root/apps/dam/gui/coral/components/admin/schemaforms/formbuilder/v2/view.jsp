@@ -71,7 +71,6 @@
     String relativePath;
     // convert the schemaHome path to absolute path
     formPathOOTB = resourceResolver.getResource(formPathOOTB).getPath();
-    log.info("formPathOOTB in apps {}",formPathOOTB);
 
     if (suffix.startsWith(formPath)) {
         relativePath = suffix.substring(formPath.length());
