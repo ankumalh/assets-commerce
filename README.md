@@ -2,7 +2,7 @@
 
 This project contains the AEM Commerce boilerplate artifacts. It demonstrates the usage of [Product SKU metadata field](https://github.com/amalhotr_adobe/assets-commerce/tree/main/ui.apps/src/main/content/jcr_root/apps/commerce/ui/components/productdata) for Adobe Experience Manager (AEM). It is intended as a best-practice set of examples as well as a potential starting point to develop your own functionality.
 
-General overview of an AEM project for cloud services is available [here] (https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/aem-project-content-package-structure).
+General overview of an AEM project for cloud services is available [here](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/aem-project-content-package-structure).
 
 
 ## Modules
