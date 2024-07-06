@@ -1886,12 +1886,12 @@
                                     <field
                                         jcr:primaryType="nt:unstructured"
                                         sling:resourceType="commerce/ui/components/productdata"
-                                        name="./jcr:content/metadata/cq:products"
+                                        name="./jcr:content/metadata/commerce:skus"
                                         showOrder="true"
                                         showRoles="true">
                                         <granite:data
                                             jcr:primaryType="nt:unstructured"
-                                            cq-msm-lockable="./metadata/cq:products"/>
+                                            cq-msm-lockable="./metadata/commerce:skus"/>
                                     </field>
                                 </_x0031_714035386916>
                             </items>

@@ -120,34 +120,60 @@ TextField
 
     String validation = StringUtils.join(cfg.get("validation", new String[0]), " ");
     attrs.add("data-foundation-validation", validation);
-    attrs.add("data-validation", validation); // Compatibility
     String contentPath =  (String)request.getAttribute("granite.ui.form.contentpath");
-    log.info("in commerce metadata component contentPath: " + request.getAttribute("granite.ui.form.contentpath"));
+
     // @coral
     attrs.add("is", "coral-textfield");
     String sku = vm.get("value", String.class);
-    String roleFieldName = null;
-    String orderFieldName = null;
+    String roleFieldName = "./jcr:content/metadata/commerce:roles";
+    String orderFieldName = "./jcr:content/metadata/commerce:position";;
     String roleValue = "";
     String orderValue = "";
     boolean showRole = "true".equals(cfg.get("showRoles", ""));
     boolean showOrder = "true".equals(cfg.get("showOrder", ""));
+    Integer indexStr =  (Integer)request.getAttribute("commerce.sku.index");
+    int index = 0;
+    if (indexStr != null){
+       index = indexStr.intValue();
+    }
+    else {
+     if (showRole) { %>
+       <input type="hidden" name='<%=roleFieldName %>@TypeHint' value="String[]"/>
+     <% }
+     if (showOrder) { %>
+       <input type="hidden" name='<%=orderFieldName %>@TypeHint' value="Long[]"/>
+     <% }
+    }
+    String defaultRoles[] = new String[]{"thumbnail", "base", "swatch"};
     if (sku != null) {
-        roleFieldName = String.format("./jcr:content/metadata/commerce-mapping/%s/role", sku.replaceAll("/", "_"));
-        orderFieldName = String.format("./jcr:content/metadata/commerce-mapping/%s/order", sku.replaceAll("/", "_"));
         if (contentPath != null) {
              ValueMap assetVM = resourceResolver.getResource(contentPath).getValueMap();
-             roleValue = assetVM.get(roleFieldName, "");
-             orderValue = assetVM.get(orderFieldName, "");
+             roleValue = assetVM.get(roleFieldName, new String[]{}).length > index  ? assetVM.get(roleFieldName, new String[]{})[index] : "";
+             orderValue = assetVM.get(orderFieldName, new String[]{}).length > index  ? assetVM.get(orderFieldName, new String[]{})[index] : "";
+             if ("-1".equals(orderValue)) {
+                 //orderValue = "";
+             }
+             request.setAttribute("commerce.sku.index", index + 1);
         }
     }
 
-%><input <%= attrs.build() %> value='<%=sku %>' class='commerce-product-skuid'  name='<%= cfg.get("name", String.class) %>' placeholder='<%= i18n.get("Product SKU") %>'>
-<% if (showRole) { %>
-       <input <%= attrs.build() %> value='<%=roleValue %>' class='commerce-product-role' name='<%=roleFieldName %>' placeholder='<%= i18n.get("Role") %>'>
-<% } else { %>
-   <!-- input <%= attrs.build() %> disabled value='<%=roleValue %>' class='commerce-product-role' name='<%=roleFieldName %>' placeholder='<%= i18n.get("Role") %>'-->
-<% } 
-   if (showOrder) { %>
-       <input <%= attrs.build() %> value='<%=orderValue %>'class='commerce-product-order' name='<%=orderFieldName %>' data-metatype="number" data-validation='cui.number'  placeholder='<%= i18n.get("Order") %>'>
+%><input <%= attrs.build() %> value='<%=sku %>' class='commerce-product-skuid'  name='<%= cfg.get("name", String.class) %>' placeholder='<%= i18n.get("Product SKU") %>'/>
+<% if (showOrder) { %>
+       <coral-numberinput placeholder="position" class='commerce-product-order' name='<%=orderFieldName %>' value='<%=orderValue %>' ></coral-numberinput>
+<% }
+if (showRole) {
+    //dont use name with role field as it doesn't do serialization with ; as separator
+    %>
+    <coral-select class='commerce-product-role' placeholder="Choose usage for image" multiple>
+     <input name='<%=roleFieldName %>' type="hidden" value='<%=roleValue %>'/>
+       <% for (String role : defaultRoles) {
+            if (roleValue.indexOf(role) >= 0) { %>
+                <coral-select-item value='<%=role %>' selected><%=role %></coral-select-item>
+           <% }
+            else { %>
+                <coral-select-item value='<%=role %>'><%=role %></coral-select-item>
+           <% }
+            
+        }%>
+    </coral-select>
 <% } %>

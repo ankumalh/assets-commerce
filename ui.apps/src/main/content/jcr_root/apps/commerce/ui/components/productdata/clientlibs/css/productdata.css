@@ -1,3 +1,15 @@
 coral-multifield-item-content > ._coral-Textfield {
     width: 192px;
 }
+
+@media (min-width: 1024px) {
+    coral-multifield-item-content {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+    coral-multifield-item-content > coral-numberinput {
+        min-width: 60px;
+        margin: 0 10px;
+     }
+}
