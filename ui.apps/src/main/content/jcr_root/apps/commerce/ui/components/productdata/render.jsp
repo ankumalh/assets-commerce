@@ -131,6 +131,10 @@ TextField
     String orderValue = "";
     boolean showRole = "true".equals(cfg.get("showRoles", ""));
     boolean showOrder = "true".equals(cfg.get("showOrder", ""));
+    final String defaultRoles[] = new String[]{"thumbnail", "base", "swatch"};
+    String roleOptions[] = cfg.get("roleOptions", defaultRoles);
+    roleFieldName = cfg.get("roleField",roleFieldName);
+    orderFieldName = cfg.get("orderField",orderFieldName);
     Integer indexStr =  (Integer)request.getAttribute("commerce.sku.index");
     int index = 0;
     if (indexStr != null){
@@ -144,7 +148,6 @@ TextField
        <input type="hidden" name='<%=orderFieldName %>@TypeHint' value="Long[]"/>
      <% }
     }
-    String defaultRoles[] = new String[]{"thumbnail", "base", "swatch"};
     if (sku != null) {
         if (contentPath != null) {
              ValueMap assetVM = resourceResolver.getResource(contentPath).getValueMap();
@@ -166,7 +169,7 @@ if (showRole) {
     %>
     <coral-select class='commerce-product-role' placeholder="Choose usage for image" multiple>
      <input name='<%=roleFieldName %>' type="hidden" value='<%=roleValue %>'/>
-       <% for (String role : defaultRoles) {
+       <% for (String role : roleOptions) {
             if (roleValue.indexOf(role) >= 0) { %>
                 <coral-select-item value='<%=role %>' selected><%=role %></coral-select-item>
            <% }

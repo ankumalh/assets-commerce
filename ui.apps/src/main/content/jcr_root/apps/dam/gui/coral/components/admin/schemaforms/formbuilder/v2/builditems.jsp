@@ -3,7 +3,7 @@
   ADOBE CONFIDENTIAL
   __________________
 
-   Copyright 2013 Adobe Systems Incorporated
+   Copyright 2024 Adobe Systems Incorporated
    All Rights Reserved.
 
   NOTICE:  All information contained herein is, and remains
@@ -247,11 +247,11 @@
                                            resourceType="dam/gui/coral/components/admin/schemaforms/formbuilder/formfields/v2/contextualmetadatafield" />
                         </script>
                     </li>
-                    <li id="contextual-metadata-schema-form-field" class="field" data-fieldtype="contextualmetadata" tabindex="-1" role="menuitem">
-                        <div class="formbuilder-template-title"><coral-icon icon="dropdown" alt="" size="M"></coral-icon><span><%= i18n.get("Contextual Metadata") %></span></div>
+                    <li id="product-metadata-schema-form-field" class="field" data-fieldtype="productdata" tabindex="-1" role="menuitem">
+                        <div class="formbuilder-template-title"><coral-icon icon="dropdown" alt="" size="M"></coral-icon><span><%= i18n.get("Product data") %></span></div>
                         <script class="field-properties" type="text/x-handlebars-template">
                             <sling:include resource="<%= fieldTemplateResource %>"
-                                           resourceType="commerce/ui/components/formbuilder/productdata" />
+                                           resourceType="dam/gui/coral/components/admin/schemaforms/formbuilder/formfields/v2/mvproductdatafield" />
                         </script>
                     </li>
                 </ul>
