@@ -35,7 +35,7 @@
                     <filters>
                         <!-- /apps root -->
                         <filter><root>/apps</root></filter>
-
+                        <filter><root>/apps/commerce</root></filter>
                         <filter><root>/apps/dam/gui/coral/components/admin/schemaforms/formbuilder</root></filter>
 
                         <!-- Common overlay roots -->
