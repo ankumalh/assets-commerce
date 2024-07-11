@@ -24,7 +24,7 @@
     <description>parent project for aem assets and commerce rule engine integration</description>
 
     <modules>
-        <!--module>all</module-->
+        <module>all</module>
         <module>ui.apps</module>
         <module>ui.apps.structure</module>
         <module>ui.config</module>
