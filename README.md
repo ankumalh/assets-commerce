@@ -8,8 +8,8 @@ General overview of an AEM project for cloud services is available [here](https:
 
 The main parts of the template are:
 
-* ui.apps: contains the product data metadata field, a corresponding metadataschema formbuilder component, and overlay of a few ootb formbuilder components. Also contains a RepositoryInitializer config to register a new namespace
-* ui.content: contains sample 'default' metadata form with a commerce tab
+* **ui.apps**: contains the product data metadata field, a corresponding metadataschema formbuilder component, and overlay of a few ootb formbuilder components. Also contains a RepositoryInitializer config to register a new namespace
+* **ui.content**: contains sample 'default' metadata form with a commerce tab
 ![commerce tab in metadata](files/metadata-tab.png "Commerce Tab")
 
 ## How to build

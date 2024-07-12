@@ -3,17 +3,17 @@
   ADOBE CONFIDENTIAL
   __________________
 
-   Copyright 2012 Adobe Systems Incorporated
+   Copyright 2024 Adobe
    All Rights Reserved.
 
   NOTICE:  All information contained herein is, and remains
   the property of Adobe Systems Incorporated and its suppliers,
   if any.  The intellectual and technical concepts contained
-  herein are proprietary to Adobe Systems Incorporated and its
+  herein are proprietary to Adobe and its
   suppliers and are protected by trade secret or copyright law.
   Dissemination of this information or reproduction of this material
   is strictly forbidden unless prior written permission is obtained
-  from Adobe Systems Incorporated.
+  from Adobe.
 
 --%><%
 %><%@include file="/libs/granite/ui/global.jsp" %><%
@@ -21,6 +21,8 @@
          import="org.apache.sling.api.resource.ValueMap" %><%
 
 	ValueMap fieldProperties = resource.adaptTo(ValueMap.class);
+    boolean showRoles = "true".equals(fieldProperties.get("field/showRoles", "false"));
+    boolean showOrder = "true".equals(fieldProperties.get("field/showOrder", "false"));
 	String key = resource.getName();
     String resourcePathBase = "dam/gui/coral/components/admin/schemaforms/formbuilder/formfieldproperties/";
 %>
@@ -54,8 +56,16 @@
     <%request.removeAttribute("cq.dam.metadataschema.builder.field.relativeresource"); %>
 
     <sling:include resource="<%= resource %>" resourceType="<%= resourcePathBase + "titlefields" %>" />
-    <coral-checkbox coral-interactive name="<%= xssAPI.encodeForHTMLAttr("./items/" + key + "/field/showRoles") %>" value="true"><span>Show Roles</span></coral-checkbox>
+    <% if (showRoles) {%>
+       <coral-checkbox checked coral-interactive name="<%= xssAPI.encodeForHTMLAttr("./items/" + key + "/field/showRoles") %>" value="true"><span>Show Roles</span></coral-checkbox> 
+    <%} else { %>
+       <coral-checkbox coral-interactive name="<%= xssAPI.encodeForHTMLAttr("./items/" + key + "/field/showRoles") %>" value="true"><span>Show Roles</span></coral-checkbox>
+    <% }
+     if (showOrder) {%>
+       <coral-checkbox checked coral-interactive name="<%= xssAPI.encodeForHTMLAttr("./items/" + key + "/field/showOrder") %>" value="true"><span>Show Order</span></coral-checkbox> 
+    <%} else { %>
      <coral-checkbox coral-interactive name="<%= xssAPI.encodeForHTMLAttr("./items/" + key + "/field/showOrder") %>" value="true"><span>Show Order</span></coral-checkbox>
+    <% } %>
     <coral-icon class="delete-field" icon="delete" size="L" tabindex="0" role="button" alt="<%= xssAPI.encodeForHTMLAttr(i18n.get("Delete")) %>" data-target-id="<%= xssAPI.encodeForHTMLAttr(key) %>" data-target="<%= xssAPI.encodeForHTMLAttr("./items/" + key + "@Delete") %>"></coral-icon>
 </div>
 <div class="formbuilder-content-properties-rules">
