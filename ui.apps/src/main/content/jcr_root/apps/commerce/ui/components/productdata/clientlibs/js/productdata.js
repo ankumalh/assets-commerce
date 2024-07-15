@@ -26,7 +26,6 @@
             const roleField = skuField.nextElementSibling;
             let orderField = roleField;
             if (orderField?.classList.contains("commerce-product-order")) {
-                orderField.setAttribute("name", './jcr:content/metadata/commerce:position');
                 orderField.value = orderField.value || -1;
             }
 

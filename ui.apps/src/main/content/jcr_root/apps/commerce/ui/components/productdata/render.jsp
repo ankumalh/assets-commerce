@@ -126,7 +126,7 @@ TextField
     attrs.add("is", "coral-textfield");
     String sku = vm.get("value", String.class);
     String roleFieldName = "./jcr:content/metadata/commerce:roles";
-    String orderFieldName = "./jcr:content/metadata/commerce:position";;
+    String orderFieldName = "./jcr:content/metadata/commerce:positions";
     String roleValue = "";
     String orderValue = "";
     boolean showRole = "true".equals(cfg.get("showRoles", ""));
