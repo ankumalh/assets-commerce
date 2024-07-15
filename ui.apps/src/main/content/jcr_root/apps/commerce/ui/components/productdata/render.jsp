@@ -131,7 +131,7 @@ TextField
     String orderValue = "";
     boolean showRole = "true".equals(cfg.get("showRoles", ""));
     boolean showOrder = "true".equals(cfg.get("showOrder", ""));
-    final String defaultRoles[] = new String[]{"thumbnail", "base", "swatch"};
+    final String defaultRoles[] = new String[]{"thumbnail", "image", "swatch_image", "small_image"};
     String roleOptions[] = cfg.get("roleOptions", defaultRoles);
     roleFieldName = cfg.get("roleField",roleFieldName);
     orderFieldName = cfg.get("orderField",orderFieldName);
