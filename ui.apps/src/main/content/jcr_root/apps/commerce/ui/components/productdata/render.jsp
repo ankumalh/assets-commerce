@@ -141,6 +141,7 @@ TextField
        index = indexStr.intValue();
     }
     else {
+    %><input type="hidden" name='<%= cfg.get("name", String.class) %>@TypeHint' value="String[]"/> <%
      if (showRole) { %>
        <input type="hidden" name='<%=roleFieldName %>@TypeHint' value="String[]"/>
      <% }
