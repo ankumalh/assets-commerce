@@ -22,6 +22,7 @@
         jcr:title="equipment_6.jpg">
         <metadata
             commerce:positions="{Long}[4]"
+            commerce:isCommerce="Yes"
             commerce:roles="[thumbnail]"
             commerce:skus="[sku-7]"
             dam:Bitsperpixel="{Long}24"
