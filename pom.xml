@@ -16,11 +16,11 @@
 --><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.aemclouddemo.commerce</groupId>
+    <groupId>com.<my-app>.commerce</groupId>
     <artifactId>parent</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
-    <name>aemclouddemo-commerce</name>
+    <name><my-app>-commerce</name>
     <description>parent project for aem assets and commerce rule engine integration</description>
 
     <modules>
@@ -48,7 +48,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <aem.sdk.api>2023.3.11382.20230315T073850Z-230100</aem.sdk.api>
         <aemanalyser.version>1.4.10</aemanalyser.version>
-        <componentGroupName>aemclouddemospolarise2etest1</componentGroupName>
+        <componentGroupName><my-app>spolarise2etest1</componentGroupName>
     </properties>
 
     <build>

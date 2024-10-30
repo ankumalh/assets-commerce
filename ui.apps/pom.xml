@@ -21,7 +21,7 @@
     <!-- P A R E N T  P R O J E C T  D E S C R I P T I O N                      -->
     <!-- ====================================================================== -->
     <parent>
-        <groupId>com.aemclouddemo.commerce</groupId>
+        <groupId>com.<my-app>.commerce</groupId>
         <artifactId>parent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
@@ -30,7 +30,7 @@
     <!-- ====================================================================== -->
     <!-- P R O J E C T  D E S C R I P T I O N                                   -->
     <!-- ====================================================================== -->
-    <artifactId>com.aemclouddemo.commerce.ui.apps</artifactId>
+    <artifactId>com.<my-app>.commerce.ui.apps</artifactId>
     <packaging>content-package</packaging>
     <name>Assets commerce integration - UI apps</name>
     <description>UI apps package for Assets commerce integration</description>
@@ -51,12 +51,12 @@
                     <properties>
                         <cloudManagerTarget>none</cloudManagerTarget>
                     </properties>
-                    <group>com.aemclouddemo.commerce</group>
+                    <group>com.<my-app>.commerce</group>
                     <packageType>application</packageType>
                     <repositoryStructurePackages>
                         <repositoryStructurePackage>
-                            <groupId>com.aemclouddemo.commerce</groupId>
-                            <artifactId>com.aemclouddemo.commerce.ui.apps.structure</artifactId>
+                            <groupId>com.<my-app>.commerce</groupId>
+                            <artifactId>com.<my-app>.commerce.ui.apps.structure</artifactId>
                         </repositoryStructurePackage>
                     </repositoryStructurePackages>
                 </configuration>
@@ -116,8 +116,8 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.aemclouddemo.commerce</groupId>
-            <artifactId>com.aemclouddemo.commerce.ui.apps.structure</artifactId>
+            <groupId>com.<my-app>.commerce</groupId>
+            <artifactId>com.<my-app>.commerce.ui.apps.structure</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
         </dependency>
