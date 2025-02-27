@@ -1878,7 +1878,7 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="dam/gui/components/admin/schemafield"
                                     emptyText="Select Option"
-                                    fieldLabel="It is eligible for Commerce"
+                                    fieldLabel="Eligible for Commerce"
                                     name="./jcr:content/metadata/commerce:isCommerce"
                                     resourceType="dam/gui/coral/components/admin/schemaforms/formbuilder/formfields/v2/metadataselect">
                                     <granite:data
