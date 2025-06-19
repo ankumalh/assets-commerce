@@ -55,9 +55,9 @@
        <coral-checkbox coral-interactive name="<%= xssAPI.encodeForHTMLAttr("./items/" + key + "/field/showRoles") %>" value="true"><span>Show Roles</span></coral-checkbox>
     <% }
      if (showOrder) {%>
-       <coral-checkbox checked coral-interactive name="<%= xssAPI.encodeForHTMLAttr("./items/" + key + "/field/showOrder") %>" value="true"><span>Show Order</span></coral-checkbox> 
+       <coral-checkbox checked coral-interactive name="<%= xssAPI.encodeForHTMLAttr("./items/" + key + "/field/showOrder") %>" value="true"><span>Show Positions</span></coral-checkbox>
     <%} else { %>
-     <coral-checkbox coral-interactive name="<%= xssAPI.encodeForHTMLAttr("./items/" + key + "/field/showOrder") %>" value="true"><span>Show Order</span></coral-checkbox>
+     <coral-checkbox coral-interactive name="<%= xssAPI.encodeForHTMLAttr("./items/" + key + "/field/showOrder") %>" value="true"><span>Show Positions</span></coral-checkbox>
     <% } %>
     <coral-icon class="delete-field" icon="delete" size="L" tabindex="0" role="button" alt="<%= xssAPI.encodeForHTMLAttr(i18n.get("Delete")) %>" data-target-id="<%= xssAPI.encodeForHTMLAttr(key) %>" data-target="<%= xssAPI.encodeForHTMLAttr("./items/" + key + "@Delete") %>"></coral-icon>
 </div>
