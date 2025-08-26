@@ -4,6 +4,8 @@ This project contains the AEM Commerce boilerplate artifacts. It demonstrates th
 
 General overview of an AEM project for cloud services is available [here](https://experienceleague.adobe.com/en/docs/experience-manager-cloud-service/content/implementing/developing/aem-project-content-package-structure).
 
+⚠️Replace all occurrences of `<my-app> `in the `filter.xml` and all the `pom.xml` files within the project with your app name. 
+
 ## Modules
 
 The main parts of the template are:
