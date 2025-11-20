@@ -25,7 +25,7 @@
             let skuField = e.target;
             const roleField = skuField.nextElementSibling;
             let orderField = roleField;
-            if (orderField?.classList.contains("commerce-product-order")) {
+            if (orderField && orderField.classList.contains("commerce-product-order")) {
                 orderField.value = orderField.value || -1;
             }
 
