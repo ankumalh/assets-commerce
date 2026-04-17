@@ -1921,6 +1921,25 @@
                                             cq-msm-lockable="./metadata/commerce:skus"/>
                                     </field>
                                 </_x0031_714035386916>
+                                <altTexts
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="dam/gui/components/admin/schemafield"
+                                    fieldLabel="Alt Texts"
+                                    resourceType="granite/ui/components/coral/foundation/form/multifield">
+                                    <granite:data
+                                        jcr:primaryType="nt:unstructured"
+                                        metaType="mvtext"
+                                        requiredCascading="default"
+                                        visibilityCascading="default"/>
+                                    <field
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                        name="./jcr:content/metadata/commerce:altTexts">
+                                        <granite:data
+                                            jcr:primaryType="nt:unstructured"
+                                            cq-msm-lockable="./metadata/commerce:altTexts"/>
+                                    </field>
+                                </altTexts>
                             </items>
                         </col1>
                     </items>
