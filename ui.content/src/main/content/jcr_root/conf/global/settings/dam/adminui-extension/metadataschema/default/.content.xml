@@ -1925,6 +1925,7 @@
                                     jcr:primaryType="nt:unstructured"
                                     sling:resourceType="dam/gui/components/admin/schemafield"
                                     fieldLabel="Alt Text"
+                                    maxlength="{Long}255"
                                     name="./jcr:content/metadata/commerce:altText"
                                     resourceType="granite/ui/components/coral/foundation/form/textfield">
                                     <granite:data
