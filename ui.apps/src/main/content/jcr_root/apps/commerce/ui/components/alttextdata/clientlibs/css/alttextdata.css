@@ -1,0 +1,42 @@
+/*
+ Copyright 2026 Adobe. All rights reserved.
+*/
+/* Two-field row: override product-SKU multifield flex (3 columns) so store view + alt text sit together */
+.commerce-alttext-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.commerce-alttext-row input.commerce-alttext-storeview,
+.commerce-alttext-row input.commerce-alttext-value,
+.commerce-alttext-row coral-textfield {
+    flex: 1 1 180px;
+    min-width: 140px;
+    max-width: 100%;
+}
+
+/* When this multifield item only contains our row, do not use space-between (from productdata.css) */
+coral-multifield-item-content:has(.commerce-alttext-row) {
+    display: block;
+    width: 100%;
+}
+
+@media (min-width: 1024px) {
+    coral-multifield-item-content:has(.commerce-alttext-row) {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+}
+
+.commerce-alttext-storeview--duplicate,
+.commerce-alttext-value--duplicate,
+.commerce-alttext-storeview--blank-conflict,
+.commerce-alttext-value--blank-conflict {
+    --spectrum-textfield-border-color: var(--spectrum-global-color-red-500, #e34850);
+    box-shadow: 0 0 0 1px var(--spectrum-global-color-red-500, #e34850);
+}
