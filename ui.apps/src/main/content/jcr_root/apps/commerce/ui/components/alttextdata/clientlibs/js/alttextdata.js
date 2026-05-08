@@ -4,12 +4,13 @@
 (function (document, Granite) {
     "use strict";
 
-    var MSG_DUPLICATE = "Each store view can only have one alt text.";
-    var MSG_BLANK_STORE = "Each row must have a store view.";
+    var MSG_DUPLICATE = "Review the Commerce Alt Text, the store view code must be unique.";
+    var MSG_BLANK_STORE = "Review the Commerce Alt Text, the store view code cannot be empty.";
 
     /** Avoid double alert if both click + custom event fire for the same save. */
     var lastAlertTs = 0;
     var ALERT_DEBOUNCE_MS = 800;
+    var _$ = null;
 
     function storeViewKey(value) {
         return String(value || "").trim().toLowerCase();
@@ -52,15 +53,21 @@
 
         var seen = {};
         var hasDuplicate = false;
-        var emptyInputs = [];
+        var hasEmpty = false;
 
         fields.forEach(function (input) {
             var key = storeViewKey(input.value);
             if (!key) {
-                emptyInputs.push(input);
-                return;
-            }
-            if (seen[key]) {
+                input.classList.add("commerce-alttext-storeview--blank-conflict");
+                var row = input.closest(".commerce-alttext-row");
+                if (row) {
+                    var alt = row.querySelector(".commerce-alttext-value");
+                    if (alt) {
+                        alt.classList.add("commerce-alttext-value--blank-conflict");
+                    }
+                }
+                hasEmpty = true;
+            } else if (seen[key]) {
                 input.classList.add("commerce-alttext-storeview--duplicate");
                 seen[key].classList.add("commerce-alttext-storeview--duplicate");
                 highlightAltRowPair(input, seen[key]);
@@ -70,17 +77,7 @@
             }
         });
 
-        if (emptyInputs.length > 0) {
-            emptyInputs.forEach(function (input) {
-                input.classList.add("commerce-alttext-storeview--blank-conflict");
-                var row = input.closest(".commerce-alttext-row");
-                if (row) {
-                    var alt = row.querySelector(".commerce-alttext-value");
-                    if (alt) {
-                        alt.classList.add("commerce-alttext-value--blank-conflict");
-                    }
-                }
-            });
+        if (hasEmpty) {
             return { valid: false, message: MSG_BLANK_STORE };
         }
         if (hasDuplicate) {
@@ -107,11 +104,15 @@
             return;
         }
         lastAlertTs = now;
-        if (Granite && Granite.I18n) {
-            window.alert(Granite.I18n.get(message));
-        } else {
-            window.alert(message);
+        var translated = (Granite && Granite.I18n) ? Granite.I18n.get(message) : message;
+        if (_$) {
+            var ui = _$(window).adaptTo("foundation-ui");
+            if (ui && ui.alert) {
+                ui.alert("", translated, "error");
+                return;
+            }
         }
+        window.alert(translated);
     }
 
     /**
@@ -208,6 +209,7 @@
         if (!$) {
             return;
         }
+        _$ = $;
         var formSelector = "#aem-assets-metadataeditor-formid";
         var handler = function (e) {
             var form = resolveMetadataForm(e);

@@ -5,18 +5,31 @@
 .commerce-alttext-row {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
+    align-items: flex-start;
     gap: 12px;
     width: 100%;
     box-sizing: border-box;
 }
 
-.commerce-alttext-row input.commerce-alttext-storeview,
-.commerce-alttext-row input.commerce-alttext-value,
-.commerce-alttext-row coral-textfield {
+.commerce-alttext-field {
     flex: 1 1 180px;
     min-width: 140px;
     max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.commerce-alttext-field-label {
+    font-size: var(--spectrum-global-dimension-font-size-75, 11px);
+    color: var(--spectrum-global-color-gray-700, #6e6e6e);
+    font-weight: 700;
+}
+
+.commerce-alttext-field input.commerce-alttext-storeview,
+.commerce-alttext-field input.commerce-alttext-value,
+.commerce-alttext-field coral-textfield {
+    width: 100%;
 }
 
 /* When this multifield item only contains our row, do not use space-between (from productdata.css) */

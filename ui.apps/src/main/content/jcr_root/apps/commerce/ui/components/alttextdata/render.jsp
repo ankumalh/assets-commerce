@@ -57,6 +57,6 @@
     }
 %>
 <div class="commerce-alttext-row">
-<input <%= attrs.build() %> value="<%= xssAPI.encodeForHTMLAttr(storeView != null ? storeView : "") %>" class="commerce-alttext-storeview" name="<%= cfg.get("name", String.class) %>" placeholder="<%= i18n.get("Store View") %>"/>
-<input is="coral-textfield" value="<%= xssAPI.encodeForHTMLAttr(altTextValue) %>" class="commerce-alttext-value" name="<%= valueFieldName %>" maxlength="255" placeholder="<%= i18n.get("Alt Text") %>"/>
+<div class="commerce-alttext-field"><span class="commerce-alttext-field-label"><%= i18n.get("Store View Code") %></span><input <%= attrs.build() %> value="<%= xssAPI.encodeForHTMLAttr(storeView != null ? storeView : "") %>" class="commerce-alttext-storeview" name="<%= cfg.get("name", String.class) %>" placeholder="<%= i18n.get("Store View Code") %>"/></div>
+<div class="commerce-alttext-field"><span class="commerce-alttext-field-label"><%= i18n.get("Alt Text") %></span><input is="coral-textfield" value="<%= xssAPI.encodeForHTMLAttr(altTextValue) %>" class="commerce-alttext-value" name="<%= valueFieldName %>" maxlength="255" placeholder="<%= i18n.get("Alt Text") %>"/></div>
 </div>
