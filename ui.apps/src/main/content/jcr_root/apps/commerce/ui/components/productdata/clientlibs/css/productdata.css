@@ -1,4 +1,16 @@
-coral-multifield-item-content > ._coral-Textfield {
+.commerce-product-field {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.commerce-product-field-label {
+    font-size: var(--spectrum-global-dimension-font-size-75, 11px);
+    color: var(--spectrum-global-color-gray-700, #6e6e6e);
+    font-weight: 700;
+}
+
+.commerce-product-field ._coral-Textfield {
     width: 192px;
 }
 
@@ -6,10 +18,10 @@ coral-multifield-item-content > ._coral-Textfield {
     coral-multifield-item-content {
         display: flex;
         justify-content: space-between;
+        align-items: flex-start;
         width: 100%;
     }
-    coral-multifield-item-content > coral-numberinput {
+    .commerce-product-field coral-numberinput {
         min-width: 60px;
-        margin: 0 10px;
-     }
+    }
 }

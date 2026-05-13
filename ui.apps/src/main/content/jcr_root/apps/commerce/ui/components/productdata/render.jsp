@@ -166,15 +166,15 @@ TextField
     }
 %>
 
-<input <%= attrs.build() %> value="<%=sku %>" class="commerce-product-skuid"  name="<%= cfg.get("name", String.class) %>" placeholder="<%= i18n.get("Product SKU") %>" />
+<div class="commerce-product-field"><span class="commerce-product-field-label"><%= i18n.get("Product SKU") %></span><input <%= attrs.build() %> value="<%=sku %>" class="commerce-product-skuid" name="<%= cfg.get("name", String.class) %>" placeholder="<%= i18n.get("Product SKU") %>"/></div>
 <% if (showOrder) { %>
-<coral-numberinput placeholder="position" class="commerce-product-order" name="<%=orderFieldName %>" value="<%=orderValue %>" ></coral-numberinput>
+<div class="commerce-product-field"><span class="commerce-product-field-label"><%= i18n.get("Position") %></span><coral-numberinput placeholder="<%= i18n.get("Position") %>" class="commerce-product-order" name="<%=orderFieldName %>" value="<%=orderValue %>"></coral-numberinput></div>
 <% }
 
     if (showRole) {
         // Don't use name with role field as it doesn't do serialization with ";" as separator
 %>
-<coral-select class="commerce-product-role" placeholder="Choose an image role" multiple>
+<div class="commerce-product-field"><span class="commerce-product-field-label"><%= i18n.get("Image Role") %></span><coral-select class="commerce-product-role" placeholder="<%= i18n.get("Choose an image role") %>" multiple>
     <input name="<%=roleFieldName %>" type="hidden" value="<%=roleValue %>"/>
     <%
         String[] selectedRoles = roleValue.isEmpty() ? new String[0] : roleValue.split(";");
@@ -194,5 +194,5 @@ TextField
     <% }
     }
     %>
-</coral-select>
+</coral-select></div>
 <% } %>

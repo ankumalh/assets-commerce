@@ -40,7 +40,7 @@
     String sfx = slingRequest.getRequestPathInfo().getSuffix();
     sfx = sfx == null ? "" : sfx;
     ToggleRouter toggleRouter = sling.getService(ToggleRouter.class);
-    
+
     /**
     CQ-4284633 Disable ratings component in metaschema editor when skyline is enabled
     **/
@@ -252,6 +252,13 @@
                         <script class="field-properties" type="text/x-handlebars-template">
                             <sling:include resource="<%= fieldTemplateResource %>"
                                            resourceType="dam/gui/coral/components/admin/schemaforms/formbuilder/formfields/v2/mvproductdatafield" />
+                        </script>
+                    </li>
+                    <li id="alttext-metadata-schema-form-field" class="field" data-fieldtype="alttextdata" tabindex="-1" role="menuitem">
+                        <div class="formbuilder-template-title"><coral-icon icon="text" alt="" size="M"></coral-icon><span><%= i18n.get("Alt Text Data") %></span></div>
+                        <script class="field-properties" type="text/x-handlebars-template">
+                            <sling:include resource="<%= fieldTemplateResource %>"
+                                           resourceType="dam/gui/coral/components/admin/schemaforms/formbuilder/formfields/v2/mvalttextdatafield" />
                         </script>
                     </li>
                 </ul>
